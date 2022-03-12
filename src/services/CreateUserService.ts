@@ -24,9 +24,7 @@ export class CreateUserService {
         })
 
         if (userExists) {
-            const result = new Error("User already exists!")
-            const status = 400
-            return { result, status }
+            return {result: new Error("User already exists!"), status: 400}
         }
 
         const passwordHash = await hash(password, 8)
@@ -44,9 +42,6 @@ export class CreateUserService {
             }
         })
 
-        const result = user
-        const status = 200
-
-        return {result, status}
+        return {result: user, status: 201}
     }
 }

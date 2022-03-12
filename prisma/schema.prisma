@@ -11,20 +11,20 @@ datasource db {
 }
 
 model User {
-  id        String  @id @default(uuid())
-  name      String
-  email     String  @unique
-  password  String
-  post Post[]
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
+  post     Post[]
 
   @@map("users")
 }
 
 model Post {
-  id        String @id @default(uuid())  
-  text String
+  id       String @id @default(uuid())
+  text     String
   authorId String
-  author User @relation(fields: [authorId], references: [id])
+  author   User   @relation(fields: [authorId], references: [id])
 
   @@map("posts")
 }
