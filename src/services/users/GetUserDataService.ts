@@ -1,13 +1,20 @@
 import { client } from '../../prisma/client'
 
+
+interface InterfacePosts {
+    id: string,
+    text: string,
+    authorId: string
+}
 interface InterfaceUserData {
     id: string,
     name: string,
-    email: string
+    email: string,
+    post?: InterfacePosts[]
 }
 
 export class GetUserDataService {
-    async execute(id: string): Promise<{result: InterfaceUserData | Error, status: number}> {
+    async execute(id: string, posts: boolean): Promise<{result: InterfaceUserData | Error, status: number}> {
         const user = await client.user.findFirst({
             where: {
                 id
@@ -15,7 +22,8 @@ export class GetUserDataService {
             select: {
                 id: true, 
                 name: true,
-                email: true
+                email: true,
+                post: posts ? true: false
             }
         })
 
