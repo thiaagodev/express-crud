@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { GetUserDataService } from '../services/GetUserDataService'
+import { GetUserDataService } from '../../services/users/GetUserDataService'
 
 
 export class GetUserDataController {

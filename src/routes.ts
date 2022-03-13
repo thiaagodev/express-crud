@@ -1,8 +1,8 @@
 import { Router } from "express"
-import { CreateUserController } from "./controllers/CreateUserController"
-import { AuthenticateUserController } from "./controllers/AuthenticateUserController"
-import { RefreshUserTokenController } from "./controllers/RefreshUserTokenController"
-import { GetUserDataController } from "./controllers/GetUserDataController"
+import { CreateUserController } from "./controllers/users/CreateUserController"
+import { AuthenticateUserController } from "./controllers/auth/AuthenticateUserController"
+import { RefreshUserTokenController } from "./controllers/auth/RefreshUserTokenController"
+import { GetUserDataController } from "./controllers/users/GetUserDataController"
 import { AuthMiddleware } from "./middlewares/AuthMiddleware"
 
 const router = Router()

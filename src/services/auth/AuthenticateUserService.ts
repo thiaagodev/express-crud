@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { client } from '../prisma/client'
+import { client } from '../../prisma/client'
 import { sign } from 'jsonwebtoken'
 import { compare } from 'bcryptjs'
 
