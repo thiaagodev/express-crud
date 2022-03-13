@@ -7,6 +7,7 @@ import { GetUserDataController } from "./controllers/users/GetUserDataController
 import { AuthMiddleware } from "./middlewares/AuthMiddleware"
 
 import { CreatePostController } from "./controllers/posts/CreatePostController"
+import { GetAllPostsController } from "./controllers/posts/GetAllPostsController"
 
 
 const router = Router()
@@ -24,7 +25,11 @@ const getUserDataController = new GetUserDataController()
 router.get('/users/me', AuthMiddleware, getUserDataController.handle)
 
 const createPostController = new CreatePostController()
-router.post('/post', AuthMiddleware, createPostController.handle)
+router.post('/posts', AuthMiddleware, createPostController.handle)
+
+const getAllPostsController = new GetAllPostsController()
+router.get('/posts', getAllPostsController.handle)
+
 
 export default router
 
