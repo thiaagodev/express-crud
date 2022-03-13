@@ -21,6 +21,10 @@ export class AuthenticateUserService {
             }
         })
 
+        if (!user) {
+            return { result: Error('User credentials are incorrect!'), status:400}
+        }
+
         const passwordIsCorrect = await compare(password, user.password)
 
         if (!passwordIsCorrect) {
